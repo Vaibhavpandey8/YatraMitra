@@ -1,63 +1,75 @@
-# ✨ API, CRM, Client and Mobile application of **_dhan-gaadi_**, an online bus booking system
+# 🚍 YatraMitra - Online Bus Booking Platform
 
-<p>
-<img src="https://img.shields.io/badge/CRM-ReactJS-blue?logo=react">
-<img src="https://img.shields.io/badge/Client-NextJS-%23000?logo=next.js">
-<img src="https://img.shields.io/badge/Mobile App-React Native-61dafb?logo=android">
-<img src="https://img.shields.io/badge/Backend-NodeJS-green?logo=node.js">
-<img src="https://img.shields.io/badge/DataBase-MongoDB-lightgreen?logo=mongoDB">
+YatraMitra is a comprehensive, premium online bus booking platform. This repository contains the complete ecosystem, including the backend API, the CRM Dashboard, and the Next.js Client Portal.
 
-</p>
+## 🚀 Technology Stack
+* **Client Portal**: Next.js (SSR), React, Vanilla CSS
+* **CRM Admin Portal**: React SPA (Single Page Application)
+* **Backend API**: Node.js, Express, Mongoose, MongoDB
+* **Real-time Engine**: Socket.io (for real-time seat tracking and map sync)
+* **Payment Gateway**: Razorpay Integration
 
-## Demo (Client => NextJS): 
+---
 
-![](./demo/client.gif)
-### To run -> 
-* #### clone the entire repo
-* #### go to server repo
-* #### make environment file with the following keys' values:
-```
-MONGO_URI = "path to mongodb url"
-userEmail = "your email"
-userPass = "your password"
-JWT_SECRET = "your secret here"
-```
-* #### yarn
-* #### yarn server
-* #### go to client repo
-* #### yarn
-* #### yarn dev
+## 🛠️ Project Setup & Installation
 
+### 1. Backend Server Setup
+1. Navigate to the `server` folder:
+   ```bash
+   cd server
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Create a `.env` file inside the `server` directory and add the following keys:
+   ```env
+   MONGO_URI="your_mongodb_connection_string"
+   userEmail="your_gmail_address"
+   userPass="your_gmail_app_password"
+   JWT_SECRET="your_jwt_secret"
+   RAZORPAY_KEY_ID="your_razorpay_key_id"
+   RAZORPAY_KEY_SECRET="your_razorpay_key_secret"
+   ```
+4. Start the backend server:
+   ```bash
+   npm run server
+   ```
 
+### 2. Client Portal Setup
+1. Navigate to the `client` folder:
+   ```bash
+   cd client
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-## Demo (CRM => React):
-![](./demo/CRM.gif)
-### To run -> 
-* #### clone the entire repo
-* #### go to server repo
-* #### make environment file with the following keys' values:
-```
-MONGO_URI = "path to mongodb url"
-userEmail = "your email"
-userPass = "your password"
-JWT_SECRET = "your secret here"
-```
-* #### yarn
-* #### yarn server
-* #### go to CRM repo
-* #### make environment file with the following keys' values: 
-```
-REACT_APP_API_URL = http://localhost:8525/api
-REACT_APP_SERVER_ROUTE = http://localhost:8525
-REACT_APP_JWT_SECRET = "your secret here"
-```
-* #### yarn
-* #### yarn start
+### 3. CRM Dashboard Setup
+1. Navigate to the `CRM` folder:
+   ```bash
+   cd CRM
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the dashboard:
+   ```bash
+   npm start
+   ```
 
-## Demo (Mobile App => React-Native) *Under construction*
-![](./demo/App.gif)
-### To run -> 
-* #### clone the entire repo
-* #### go to app repo
-* #### yarn
-* #### having expo installed in your system, expo start
+---
+
+## 💎 Features
+* **Real-Time Seating Sync**: Interactive seat map powered by Socket.io that locks/unlocks seats instantly as users select them.
+* **Gender-Based adjacent Seat Locking**: Prevents male/other bookings adjacent to female reserved seats to ensure safety.
+* **Email E-Ticket Invoicing**: Automatic beautiful HTML e-ticket dispatch via Nodemailer upon successful booking.
+* **Dynamic Surge & Discount Engine**: Automatic 10% weekend surges and 15% last-minute discount pricing rules.
+* **Referral & Cashback System**: 5% automatic wallet cashbacks on bookings and ₹100/₹50 user referral bonuses.
+* **Multi-Platform Comparison Engine**: Live rate comparison table against Paytm, RedBus, and AbhiBus.
