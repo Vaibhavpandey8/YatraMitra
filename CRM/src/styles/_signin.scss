@@ -1,0 +1,429 @@
+@import 'variables';
+
+.login-dark, .login-wrapper {
+  height: 100vh !important;
+  display: flex !important;
+  align-items: center !important;    /* vertical center */
+  justify-content: flex-end !important;
+  font-family: $font-family;
+  background: $bg-body;
+  position: relative;
+  overflow: hidden !important;
+  padding-right: 120px;
+
+  // ===== Full Page Video Background & Overlay =====
+  .video-bg {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .login-video-full {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .login-video-overlay-full {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(8, 13, 24, 0.45) 0%, rgba(6, 9, 17, 0.65) 100%),
+                radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.15) 0%, transparent 75%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .branding-text {
+    position: fixed;
+    bottom: 40%;
+    left: 10%;
+    z-index: 2;
+
+    h1 {
+      font-size: 3.2rem;
+      font-weight: 900;
+      font-family: $font-headings;
+      color: #ffffff;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+      max-width: 520px;
+      margin: 0;
+    }
+
+    .amber-line {
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, $primary 0%, #d97706 100%);
+      margin-top: 1.5rem;
+      border-radius: 2px;
+      box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+    }
+  }
+
+  .login-content-wrap {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 440px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+  }
+
+  .login-card {
+    background: rgba(13, 15, 20, 0.35) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 0.5px solid rgba(217, 119, 6, 0.25) !important;
+    margin-right: 60px !important;
+  }
+
+  // ===== Login/Signup Card Form styling =====
+  form.login-form {
+    position: relative;
+    z-index: 2;
+    max-width: 380px;
+    width: 100%;
+    background: linear-gradient(135deg, rgba(13, 21, 38, 0.5) 0%, rgba(8, 13, 24, 0.75) 100%) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1.2px solid rgba(245, 158, 11, 0.22) !important;
+    padding: 2.8rem 2.4rem 2.4rem;
+    border-radius: 24px;
+    margin-right: 60px !important;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.55),
+                0 0 40px rgba(245, 158, 11, 0.05),
+                inset 0 0 24px rgba(255, 255, 255, 0.02);
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    color: $text-primary;
+
+    .admin-badge {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.2rem;
+      background: rgba(245, 158, 11, 0.08);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      color: $primary;
+      padding: 0.22rem 0.65rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      border-radius: $radius-pill;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      backdrop-filter: blur(4px);
+    }
+  }
+
+  .login-logo {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    .logo-icon-wrapper {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, $primary 0%, #d97706 100%);
+      border-radius: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+      box-shadow: 0 8px 24px rgba(245, 158, 11, 0.35), 0 0 15px rgba(245, 158, 11, 0.15);
+      color: #fff;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      animation: pulseGlow 3s infinite alternate;
+
+      &:hover {
+        transform: scale(1.1) rotate(5deg);
+        box-shadow: 0 12px 30px rgba(245, 158, 11, 0.5), 0 0 20px rgba(245, 158, 11, 0.25);
+      }
+    }
+
+    h2 {
+      font-size: 1.55rem;
+      font-weight: 800;
+      font-family: $font-headings;
+      color: $text-light;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.45);
+      margin: 0.35rem 0 0;
+    }
+  }
+
+  .form-group {
+    margin-bottom: 1.3rem;
+
+    .input-label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(255, 255, 255, 0.45);
+      margin-bottom: 0.45rem;
+      font-family: $font-family;
+    }
+
+    .custom-input-wrapper {
+      display: flex;
+      align-items: center;
+      background: rgba(8, 13, 24, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 6px;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+      &:focus-within {
+        border-color: rgba(245, 158, 11, 0.55) !important;
+        box-shadow: 0 0 16px rgba(245, 158, 11, 0.22) !important;
+        background: rgba(8, 13, 24, 0.75);
+      }
+
+      .input-icon-left {
+        font-size: 1.05rem;
+        color: $primary;
+        margin: 0 10px;
+        opacity: 0.85;
+      }
+
+      .input-icon-right {
+        font-size: 1.05rem;
+        color: rgba(245, 158, 11, 0.5);
+        margin: 0 10px;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &:hover {
+          color: $primary;
+          opacity: 1;
+        }
+      }
+
+      .input-inner-box {
+        flex: 1;
+        background: rgba(8, 13, 24, 0.65);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 6px;
+        overflow: hidden;
+
+        input {
+          width: 100%;
+          background: transparent !important;
+          border: none !important;
+          padding: 8px 12px;
+          color: $text-primary;
+          font-size: 0.95rem;
+          outline: none !important;
+          box-shadow: none !important;
+
+          &::placeholder {
+            color: rgba(255, 255, 255, 0.2);
+          }
+        }
+      }
+    }
+  }
+
+  .options-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.2rem 0 1.6rem;
+
+    .forgot-link {
+      font-size: 0.82rem;
+      color: $primary;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.2s;
+
+      &:hover {
+        opacity: 0.85;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .custom-checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    margin: 0;
+
+    input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+
+    .checkmark {
+      height: 16px;
+      width: 16px;
+      background: rgba(8, 13, 24, 0.6);
+      border: 1px solid rgba(245, 158, 11, 0.22);
+      border-radius: 4px;
+      margin-right: 8px;
+      display: inline-block;
+      position: relative;
+      transition: all 0.2s;
+
+      &::after {
+        content: "";
+        position: absolute;
+        display: none;
+        left: 5px;
+        top: 2px;
+        width: 4px;
+        height: 8px;
+        border: solid $primary;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+      }
+    }
+
+    &:hover input~.checkmark {
+      border-color: rgba(245, 158, 11, 0.5);
+    }
+
+    input:checked~.checkmark {
+      background: rgba(245, 158, 11, 0.1);
+      border-color: $primary;
+
+      &::after {
+        display: block;
+      }
+    }
+
+    .checkbox-label {
+      cursor: pointer;
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.5);
+      font-weight: 550;
+      user-select: none;
+      transition: color 0.15s ease;
+    }
+
+    &:hover .checkbox-label {
+      color: $text-primary;
+    }
+  }
+
+  .btn-submit {
+    width: 100%;
+    padding: 0.9rem;
+    background: linear-gradient(135deg, $primary 0%, #d97706 100%) !important;
+    color: #080d18 !important;
+    border: none !important;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 800;
+    font-family: $font-headings;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(245, 158, 11, 0.3);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    outline: none !important;
+
+    &:hover {
+      box-shadow: 0 10px 25px rgba(245, 158, 11, 0.5), 0 0 15px rgba(245, 158, 11, 0.25) !important;
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+
+  .signup-prompt {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.4);
+
+    a {
+      color: $primary;
+      font-weight: 700;
+      text-decoration: none;
+      margin-left: 0.25rem;
+      transition: all 0.2s;
+
+      &:hover {
+        text-decoration: underline;
+        opacity: 0.9;
+      }
+    }
+  }
+}
+
+// Responsive layout for tablets/mobile screens
+@media (max-width: 860px) {
+  .login-dark, .login-wrapper {
+    justify-content: center !important;
+    padding-right: 0 !important;
+    padding: 1.5rem;
+  }
+
+  .branding-text {
+    display: none !important;
+  }
+
+  .login-card, form.login-form {
+    margin-right: 0 !important;
+  }
+}
+
+// ===== Animations =====
+@keyframes slideUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInScale {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 8px 24px rgba(245, 158, 11, 0.25), 0 0 10px rgba(245, 158, 11, 0.1);
+  }
+  100% {
+    box-shadow: 0 8px 28px rgba(245, 158, 11, 0.45), 0 0 20px rgba(245, 158, 11, 0.25);
+  }
+}

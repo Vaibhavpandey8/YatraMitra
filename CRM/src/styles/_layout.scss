@@ -1,0 +1,942 @@
+@import 'variables';
+
+/* ==========================================================================
+   2. RESET & BASE
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family !important;
+  background: linear-gradient(rgba(5, 10, 30, 0.85), rgba(5, 10, 30, 0.85)), url('/img/client-bg.jfif') center top / cover no-repeat fixed !important;
+  color: $text-primary !important;
+  min-height: 100vh !important;
+  overflow-x: hidden !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.wrapper {
+  background: linear-gradient(rgba(5, 10, 30, 0.85), rgba(5, 10, 30, 0.85)), url('/img/client-bg.jfif') center top / cover no-repeat fixed !important;
+  min-height: 100vh !important;
+}
+
+h1, h2, h3, h4, h5, h6,
+.box-title, .modal-title, .logo {
+  font-family: $font-headings !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* ==========================================================================
+   3. LAYOUT STRUCTURE
+   ========================================================================== */
+.content-wrapper {
+  margin-left: $sidebar-width !important;
+  margin-top: 60px !important;
+  padding: 2rem !important;
+  min-height: calc(100vh - 60px) !important;
+  background: transparent !important;
+  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ==========================================================================
+   4. SIDEBAR ("MIDNIGHT EXPRESS")
+   ========================================================================== */
+.main-sidebar {
+  background: linear-gradient(180deg, $bg-sidebar 0%, #060911 100%) !important;
+  width: $sidebar-width !important;
+  position: fixed !important;
+  top: 60px !important; /* Starts below the header */
+  left: 0 !important;
+  bottom: 0 !important;
+  z-index: 900 !important; /* Below top header */
+  overflow-y: auto !important;
+  max-height: calc(100vh - 60px) !important;
+  border-right: 1px solid $border-color !important;
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5) !important;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+
+  &::-webkit-scrollbar {
+    width: 6px !important;
+    height: 6px !important;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2) !important;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(245, 158, 11, 0.45) !important;
+    border-radius: 10px !important;
+
+    &:hover {
+      background: rgba(245, 158, 11, 0.8) !important;
+    }
+  }
+
+  .sidebar {
+    background: transparent !important;
+    padding-top: 0 !important;
+    padding-bottom: 2rem !important; /* Additional spacing for scrolling elements */
+  }
+
+  // User Panel / Avatar
+  .user-panel {
+    padding: 1.5rem 1.2rem !important;
+    border-bottom: 1px solid $border-color !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    margin-bottom: 1rem !important;
+    transition: padding 0.3s, justify-content 0.3s !important;
+    position: relative !important;
+
+    .image {
+      float: none !important;
+      display: flex !important;
+      align-items: center;
+      padding: 0 !important;
+      margin: 0 !important;
+
+      img {
+        width: 44px !important;
+        height: 44px !important;
+        border-radius: 50% !important;
+        object-fit: cover !important;
+        border: 2px solid $primary !important;
+        box-shadow: 0 0 10px rgba(245, 158, 11, 0.25) !important;
+        transition: transform 0.3s ease !important;
+
+        &:hover {
+          transform: scale(1.05) rotate(5deg) !important;
+        }
+      }
+    }
+
+    .info {
+      float: none !important;
+      position: static !important;
+      padding: 0 !important;
+      flex: 1 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 0.2rem !important;
+      overflow: hidden !important;
+      white-space: nowrap !important;
+      transition: opacity 0.2s ease !important;
+
+      p {
+        color: $text-primary !important;
+        font-weight: 600 !important;
+        font-size: 0.9rem !important;
+        margin: 0 !important;
+        font-family: $font-family !important;
+        text-overflow: ellipsis !important;
+        overflow: hidden !important;
+      }
+
+      a, .role-badge {
+        text-decoration: none !important;
+        display: inline-block !important;
+        font-size: 0.72rem !important;
+        background: rgba(245, 158, 11, 0.12) !important;
+        color: $primary !important;
+        border: 1px solid rgba(245, 158, 11, 0.2) !important;
+        border-radius: $radius-pill !important;
+        padding: 2px 8px !important;
+        font-weight: 600 !important;
+        width: fit-content !important;
+        letter-spacing: 0.5px !important;
+        text-transform: uppercase !important;
+        position: static !important;
+      }
+    }
+  }
+
+  // Sidebar Greeting Badge
+  .sidebar-greeting {
+    padding: 0 1.2rem !important;
+    margin-bottom: 0.5rem !important;
+
+    .greeting-badge {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 100% !important;
+      padding: 0.5rem 1rem !important;
+      background: rgba(245, 158, 11, 0.08) !important;
+      border: 1px solid rgba(245, 158, 11, 0.25) !important;
+      border-radius: $radius-pill !important;
+      color: $primary !important;
+      font-size: 0.82rem !important;
+      font-weight: 700 !important;
+      font-family: $font-headings !important;
+      letter-spacing: 0.5px !important;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.05) !important;
+      transition: all 0.25s ease !important;
+
+      i {
+        font-size: 0.9rem !important;
+      }
+
+      &:hover {
+        background: rgba(245, 158, 11, 0.12) !important;
+        box-shadow: 0 4px 15px rgba(245, 158, 11, 0.1) !important;
+      }
+    }
+  }
+
+  // Sidebar Menu Links
+  .sidebar-menu {
+    list-style: none !important;
+    padding: 0 0.8rem !important;
+
+    & > li {
+      margin-bottom: 6px !important;
+      position: relative !important;
+
+      & > a {
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.85rem !important;
+        padding: 0.85rem 1rem !important;
+        border-radius: $radius-md !important;
+        color: $text-muted !important;
+        text-decoration: none !important;
+        font-size: 0.88rem !important;
+        font-weight: 500 !important;
+        font-family: $font-family !important;
+        position: relative !important;
+        overflow: hidden !important;
+        border-left: 0px solid transparent !important;
+        transition: all 0.2s ease !important;
+
+        i {
+          width: 20px !important;
+          text-align: center !important;
+          font-size: 1.05rem !important;
+          color: $text-muted !important;
+          transition: color 0.2s ease, transform 0.2s ease !important;
+        }
+
+        .pull-right-container {
+          margin-left: auto !important;
+          display: flex !important;
+          align-items: center !important;
+
+          i {
+            font-size: 0.75rem !important;
+            color: rgba(255, 255, 255, 0.2) !important;
+          }
+        }
+
+        // Hover effect: premium background highlight and scale
+        &:hover {
+          background: rgba(255, 255, 255, 0.02) !important;
+          color: $text-primary !important;
+          border-left: none !important;
+          border: 1px solid rgba(255, 255, 255, 0.05) !important;
+          padding-left: 1rem !important;
+
+          i {
+            color: $primary !important;
+            transform: scale(1.05) !important;
+          }
+        }
+      }
+
+      // Active menu indicator - capsule design
+      &.active > a {
+        background: rgba(245, 158, 11, 0.08) !important;
+        color: $primary !important;
+        font-weight: 600 !important;
+        border-left: none !important;
+        border: 1px solid rgba(245, 158, 11, 0.15) !important;
+        box-shadow: inset 0 0 15px rgba(245, 158, 11, 0.03) !important;
+        padding-left: 1rem !important;
+
+        i {
+          color: $primary !important;
+        }
+      }
+    }
+
+    // Glowing Custom Badge Pill
+    .badge-new {
+      margin-left: auto !important;
+      font-size: 0.72rem !important;
+      padding: 2px 8px !important;
+      font-weight: 600 !important;
+      border-radius: 10px !important;
+      background: rgba(245, 158, 11, 0.08) !important;
+      border: 1px solid rgba(245, 158, 11, 0.3) !important;
+      color: $primary !important;
+      text-transform: capitalize !important;
+      letter-spacing: 0.2px !important;
+    }
+
+    // Submenu treeview
+    .treeview-menu {
+      list-style: none !important;
+      padding: 0.4rem 0 0.4rem 0 !important;
+
+      li {
+        margin-bottom: 2px !important;
+        padding-left: 12px !important;
+        border-left: 1px solid rgba(217, 119, 6, 0.2) !important;  /* amber left line */
+        margin-left: 24px !important;
+        transition: border-color 0.25s ease !important;
+
+        a {
+          display: flex !important;
+          align-items: center !important;
+          gap: 0.7rem !important;
+          padding: 0.5rem 0.8rem !important;
+          border-radius: 8px !important;
+          color: $text-muted !important;
+          text-decoration: none !important;
+          font-size: 0.82rem !important;
+          transition: all 0.15s ease !important;
+
+          i {
+            font-size: 0.82rem !important;
+            color: rgba(255, 255, 255, 0.25) !important;
+            transition: color 0.15s ease !important;
+          }
+
+          &:hover {
+            color: $text-primary !important;
+            background: rgba(245, 158, 11, 0.04) !important;
+            i {
+              color: $primary !important;
+            }
+          }
+        }
+
+        &.active {
+          border-left-color: $primary !important; /* glowing active indicator line */
+
+          a {
+            color: $primary !important;
+            font-weight: 600 !important;
+            i {
+              color: $primary !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+   5. TOP NAVBAR
+   ========================================================================== */
+.main-header {
+  position: fixed !important;
+  width: 100% !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  background: rgba(8, 13, 24, 0.75) !important;
+  backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid $border-color !important;
+  height: 60px !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15) !important;
+
+  // Full-width Scrolling Marquee
+  .header-marquee.full-width {
+    width: 100% !important;
+    height: 60px !important;
+    background: $primary !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    position: relative !important;
+
+    .marquee-content {
+      display: flex !important;
+      white-space: nowrap !important;
+      animation: marqueeScroll 30s linear infinite !important;
+
+      span {
+        display: inline-block !important;
+        padding: 0 3rem !important;
+        font-family: $font-headings !important;
+        font-size: 1.35rem !important;
+        font-weight: 700 !important;
+        color: #080d18 !important;
+        letter-spacing: 0.5px !important;
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+   6. DASHBOARD CONTENT & CARDS (GLASSMORPHISM)
+   ========================================================================== */
+.content-header {
+  margin-bottom: 2rem !important;
+
+  h1 {
+    font-size: 1.75rem !important;
+    font-weight: 800 !important;
+    color: $text-primary !important;
+    position: relative !important;
+    padding-bottom: 0.6rem !important;
+
+    // Saffron underline accent
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: $primary !important;
+      border-radius: 2px !important;
+      box-shadow: 0 0 8px rgba(245, 158, 11, 0.4) !important;
+    }
+  }
+}
+
+// Glassmorphism Card Wrapper
+.box {
+  background: $bg-card !important;
+  backdrop-filter: blur(16px) !important;
+  border-radius: $radius-lg !important;
+  border: 1px solid $border-color !important;
+  box-shadow: $shadow-card !important;
+  overflow: hidden !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease !important;
+
+  &:hover {
+    transform: translateY(-3px) !important;
+    border-color: rgba(245, 158, 11, 0.2) !important;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45), 0 0 20px rgba(245, 158, 11, 0.03) !important;
+  }
+}
+
+.box-header.with-border {
+  background: transparent !important;
+  border-bottom: 1px solid $border-color !important;
+  padding: 1.3rem 1.6rem !important;
+
+  .box-title {
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    color: $text-primary !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.6rem !important;
+
+    i {
+      color: $primary !important;
+    }
+  }
+}
+
+.box-body {
+  padding: 1.6rem !important;
+}
+
+// Legend pills / Status colors
+.legend-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  font-size: 0.8rem !important;
+  font-weight: 500 !important;
+  color: $text-muted !important;
+
+  .pill-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+
+    &.primary { color: $primary; box-shadow: 0 0 8px rgba(245, 158, 11, 0.4); }
+    &.secondary { color: $secondary; box-shadow: 0 0 8px rgba(56, 189, 248, 0.4); }
+    &.success { color: $success; box-shadow: 0 0 8px rgba(34, 197, 94, 0.4); }
+    &.danger { color: $danger; box-shadow: 0 0 8px rgba(239, 68, 68, 0.4); }
+  }
+}
+
+/* ==========================================================================
+   7. FORM CONTROLS & INPUTS
+   ========================================================================== */
+.form-control {
+  border: 1px solid $border-color !important;
+  border-radius: $radius-md !important;
+  font-family: $font-family !important;
+  font-size: 0.9rem !important;
+  color: $text-primary !important;
+  background: rgba(255, 255, 255, 0.02) !important;
+  padding: 0.75rem 1rem !important;
+  height: auto !important;
+  box-shadow: none !important;
+  transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease !important;
+
+  &:focus {
+    border-color: $primary !important;
+    background-color: rgba(255, 255, 255, 0.04) !important;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15) !important;
+    outline: none !important;
+  }
+}
+
+select.form-control {
+  cursor: pointer !important;
+  appearance: none !important;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f59e0b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 1rem center !important;
+  background-size: 1em !important;
+  padding-right: 2.5rem !important;
+}
+
+select option {
+  background-color: $bg-sidebar !important;
+  color: $text-primary !important;
+}
+
+::placeholder {
+  color: $text-muted !important;
+  opacity: 0.6 !important;
+}
+
+/* ==========================================================================
+   8. BUTTONS (MIDNIGHT EXPRESS DESIGN)
+   ========================================================================== */
+.btn {
+  font-family: $font-headings !important;
+  font-weight: 600 !important;
+  border-radius: $radius-md !important;
+  padding: 0.7rem 1.5rem !important;
+  font-size: 0.88rem !important;
+  letter-spacing: 0.2px !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  border: none !important;
+  cursor: pointer !important;
+
+  &:hover {
+    transform: translateY(-1.5px) !important;
+  }
+  &:active {
+    transform: translateY(0.5px) !important;
+  }
+}
+
+// Amber Primary
+.btn-primary {
+  background: $primary !important;
+  color: #080d18 !important;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.25) !important;
+
+  &:hover {
+    background: #fbbf24 !important;
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4) !important;
+  }
+}
+
+// Ghost Amber Outline
+.btn-outline-primary, .btn-info {
+  background: transparent !important;
+  border: 1px solid rgba(245, 158, 11, 0.4) !important;
+  color: $primary !important;
+
+  &:hover {
+    background: $primary !important;
+    color: #080d18 !important;
+    border-color: $primary !important;
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.3) !important;
+  }
+}
+
+// Ghost Danger Outline
+.btn-outline-danger {
+  background: transparent !important;
+  border: 1px solid rgba(239, 68, 68, 0.4) !important;
+  color: $danger !important;
+
+  &:hover:not(:disabled) {
+    background: $danger !important;
+    color: #ffffff !important;
+    border-color: $danger !important;
+    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.3) !important;
+  }
+
+  &:disabled {
+    background: transparent !important;
+    color: rgba(239, 68, 68, 0.4) !important;
+    border-color: rgba(239, 68, 68, 0.15) !important;
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+  }
+}
+
+// Small Buttons Uniform Height & Alignment
+.btn-sm {
+  padding: 0.35rem 0.75rem !important;
+  font-size: 0.75rem !important;
+  border-radius: $radius-sm !important;
+  height: 28px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+}
+
+// Muted Secondary Button
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid $border-color !important;
+  color: $text-primary !important;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: $text-light !important;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05) !important;
+  }
+}
+
+// Success State
+.btn-success {
+  background: $success !important;
+  color: #080d18 !important;
+  box-shadow: 0 4px 15px rgba(34, 197, 94, 0.25) !important;
+
+  &:hover {
+    background: #4ade80 !important;
+    box-shadow: 0 8px 25px rgba(34, 197, 94, 0.4) !important;
+  }
+}
+
+// Danger State
+.btn-danger {
+  background: $danger !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.25) !important;
+
+  &:hover {
+    background: #f87171 !important;
+    box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4) !important;
+  }
+}
+
+/* ==========================================================================
+   9. TABLES
+   ========================================================================== */
+.table {
+  font-family: $font-family !important;
+  font-size: 0.88rem !important;
+  color: $text-primary !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+
+  thead tr th {
+    background: rgba(255, 255, 255, 0.02) !important;
+    color: $primary !important;
+    font-family: $font-headings !important;
+    font-weight: 700 !important;
+    font-size: 0.8rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.8px !important;
+    border-bottom: 2px solid $border-color !important;
+    padding: 1.1rem 1.3rem !important;
+    border-top: none !important;
+  }
+
+  tbody tr {
+    transition: background-color 0.15s ease !important;
+
+    td {
+      padding: 1rem 1.3rem !important;
+      border-color: $border-color !important;
+      vertical-align: middle !important;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.015) !important;
+    }
+  }
+}
+
+/* ==========================================================================
+   10. ALERTS & BADGES
+   ========================================================================== */
+.alert {
+  border-radius: $radius-md !important;
+  border: 1px solid transparent !important;
+  font-family: $font-family !important;
+  font-weight: 500 !important;
+  padding: 1rem 1.3rem !important;
+}
+
+.alert-danger  { background: rgba(239, 68, 68, 0.08) !important; color: #fca5a5 !important; border-color: rgba(239, 68, 68, 0.2) !important; }
+.alert-success { background: rgba(34, 197, 94, 0.08) !important; color: #a7f3d0 !important; border-color: rgba(34, 197, 94, 0.2) !important; }
+.alert-info    { background: rgba(56, 189, 248, 0.08) !important; color: #bae6fd !important; border-color: rgba(56, 189, 248, 0.2) !important; }
+.alert-warning { background: rgba(245, 158, 11, 0.08) !important; color: #fde68a !important; border-color: rgba(245, 158, 11, 0.2) !important; }
+
+.label, .badge {
+  font-family: $font-family !important;
+  font-weight: 600 !important;
+  border-radius: $radius-pill !important;
+  padding: 3px 10px !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.2px !important;
+}
+
+/* ==========================================================================
+   11. DESCRIPTION BLOCKS (Footer)
+   ========================================================================== */
+.box-footer {
+  background: transparent !important;
+  border-top: 1px solid $border-color !important;
+  padding: 1.2rem 1.6rem !important;
+  font-family: $font-family !important;
+  font-size: 0.8rem !important;
+  color: $text-muted !important;
+}
+
+.img-circle {
+  border-radius: 50% !important;
+  border: 2px solid $border-color !important;
+  object-fit: cover !important;
+}
+
+/* ==========================================================================
+   12. CUSTOM SCROLLBAR
+   ========================================================================== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: $bg-body;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(245, 158, 11, 0.25);
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: $primary;
+}
+
+/* ==========================================================================
+   13. BOOTSTRAP CARDS & MODALS OVERRIDES
+   ========================================================================== */
+.card, .card-default {
+  background: $bg-card !important;
+  backdrop-filter: blur(16px) !important;
+  color: $text-primary !important;
+  border: 1px solid $border-color !important;
+  box-shadow: $shadow-card !important;
+  border-radius: $radius-lg !important;
+
+  .card-header, .card-footer {
+    background: transparent !important;
+    border-color: $border-color !important;
+    color: $text-primary !important;
+  }
+}
+
+.modal-content {
+  background: #0d1526 !important;
+  border: 1px solid $border-color !important;
+  box-shadow: $shadow-lg !important;
+  border-radius: $radius-lg !important;
+  color: $text-primary !important;
+  backdrop-filter: blur(20px) !important;
+}
+
+.modal-header, .modal-footer {
+  border-color: $border-color !important;
+  background: transparent !important;
+}
+
+.modal-title {
+  color: $text-primary !important;
+}
+
+/* ==========================================================================
+   14. ANIMATIONS & KEYFRAMES
+   ========================================================================== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(245, 158, 11, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+  }
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ==========================================================================
+   15. RESPONSIVE DESIGN (Media Queries)
+   ========================================================================== */
+@media (max-width: 992px) {
+  .main-sidebar {
+    width: 60px !important;
+
+    .user-panel {
+      padding: 1rem 0.5rem !important;
+      justify-content: center !important;
+
+      .info {
+        display: none !important;
+        opacity: 0 !important;
+      }
+    }
+
+    .sidebar-menu {
+      padding: 0 0.25rem !important;
+
+      & > li {
+        & > a {
+          padding: 0.85rem !important;
+          justify-content: center !important;
+          border-left: none !important;
+
+          span, .pull-right-container, .label {
+            display: none !important;
+          }
+        }
+      }
+    }
+  }
+
+  .content-wrapper {
+    margin-left: 60px !important;
+    padding: 1.5rem !important;
+  }
+
+  .main-header {
+    .logo {
+      width: 60px !important;
+      border-right: none !important;
+
+      .logo-lg {
+        display: none !important;
+      }
+      .logo-mini {
+        display: block !important;
+        font-size: 1.1rem !important;
+      }
+    }
+
+    .navbar {
+      margin-left: 60px !important;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .content-wrapper {
+    padding: 1rem !important;
+  }
+  .box-body {
+    padding: 1.2rem !important;
+  }
+}
+
+/* ==========================================================================
+   16. MANUAL SIDEBAR COLLAPSE SUPPORT (AdminLTE Class overrides)
+   ========================================================================== */
+body.sidebar-collapse {
+  .main-sidebar {
+    width: 0 !important;
+    overflow: hidden !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+  .content-wrapper { margin-left: 0 !important; }
+  .main-header {
+    .logo-area {
+      width: auto !important;
+      border-right: none !important;
+    }
+    .logo {
+      .logo-lg { display: none !important; }
+      .logo-mini { display: block !important; font-size: 1.1rem !important; }
+    }
+    .navbar { margin-left: 0 !important; }
+  }
+}
+
+/* ==========================================================================
+   17. UNIFIED DARK GLASS THEME OVERRIDES FOR DATA TABLES & BUTTONS
+   ========================================================================== */
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(255, 255, 255, 0.02) !important;
+  color: $text-primary !important;
+  td {
+    color: $text-primary !important;
+    a, i, span, b, p, div { color: $text-primary !important; }
+  }
+}
+.table-striped tbody tr:nth-of-type(even) {
+  background-color: transparent !important;
+  color: $text-primary !important;
+  td {
+    color: $text-primary !important;
+    a, i, span, b, p, div { color: $text-primary !important; }
+  }
+}
+.asrt-page-length .input-group-addon {
+  background: transparent !important;
+  color: $text-primary !important;
+  padding: 0 5px !important;
+  border: none !important;
+}
+.btn-default {
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: $text-primary !important;
+  border: 1px solid $border-color !important;
+  i { color: $text-primary !important; }
+  &:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: $text-light !important;
+    border-color: rgba(245, 158, 11, 0.2) !important;
+    i { color: $text-light !important; }
+  }
+}
+
+.asrt-table-body {
+  width: 100% !important;
+  overflow-x: auto !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  -webkit-overflow-scrolling: touch !important;
+
+  .col-md-12 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
