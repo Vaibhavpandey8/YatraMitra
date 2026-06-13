@@ -1,7 +1,7 @@
 import Layout from "../../components/Layout";
-import SearchMenu from "./searchMenu";
-import Filters from "./filters";
-import Cards from "./cards";
+import SearchMenu from "../../components/buses/searchMenu";
+import Filters from "../../components/buses/filters";
+import Cards from "../../components/buses/cards";
 import { Row, Col } from "antd";
 import { searchBus } from "../../actions/location";
 import Param from "../../utils/checkQueryParam";
