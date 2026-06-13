@@ -2,6 +2,11 @@
 
 YatraMitra is a comprehensive, premium online bus booking platform. This repository contains the complete ecosystem, including the backend API, the CRM Dashboard, and the Next.js Client Portal.
 
+### 🌐 Live Production Links
+* **Client Frontend Website**: [yatramitraclient.vercel.app](https://yatramitraclient.vercel.app)
+* **CRM Admin Dashboard**: [yatramitracrm.netlify.app](https://yatramitracrm.netlify.app)
+* **Backend API Server**: [yatramitra-backend-9t48.onrender.com](https://yatramitra-backend-9t48.onrender.com)
+
 ## 📱 Previews
 
 ### Client Portal (Next.js)
