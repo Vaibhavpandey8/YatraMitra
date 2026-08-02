@@ -121,27 +121,29 @@ const ForgotPassword = () => {
       />
       <div className="login-video-overlay-full" />
 
-      {/* Branding Text on Left */}
-      <div className="branding-text">
-        <h1>Every journey begins here</h1>
-        <div className="amber-line" />
-      </div>
-
-      {/* Centered Form Card Wrapper */}
-      <div className="login-content-wrap">
-        {/* Notifications display */}
-        <div style={{ width: "100%", maxWidth: "380px", margin: "0 auto 1rem", position: "relative", zIndex: 10 }}>
-          {state.error && (
-            <div className="alert alert-danger" style={{ backdropFilter: "blur(8px)" }}>
-              {state.error}
-            </div>
-          )}
-          {state.loading && (
-            <div className="alert alert-info" style={{ backdropFilter: "blur(8px)" }}>
-              Sending...
-            </div>
-          )}
+      {/* Main Responsive Flex Layout Container */}
+      <div className="login-container-inner">
+        {/* Branding Text */}
+        <div className="branding-text">
+          <h1>Every journey begins here</h1>
+          <div className="amber-line" />
         </div>
+
+        {/* Centered Form Card Wrapper */}
+        <div className="login-content-wrap">
+          {/* Notifications display */}
+          <div style={{ width: "100%", maxWidth: "380px", margin: "0 auto 1rem", position: "relative", zIndex: 10 }}>
+            {state.error && (
+              <div className="alert alert-danger" style={{ backdropFilter: "blur(8px)" }}>
+                {state.error}
+              </div>
+            )}
+            {state.loading && (
+              <div className="alert alert-info" style={{ backdropFilter: "blur(8px)" }}>
+                Sending...
+              </div>
+            )}
+          </div>
 
         <form
           className="login-form"
@@ -330,7 +332,8 @@ const ForgotPassword = () => {
         </form>
       </div>
     </div>
-  );
+  </div>
+);
 };
 
 export default ForgotPassword;

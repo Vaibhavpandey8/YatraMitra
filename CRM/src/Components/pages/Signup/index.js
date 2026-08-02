@@ -144,28 +144,31 @@ const Signup = () => {
       />
       <div className="login-video-overlay-full" />
 
-      {/* Branding Text on Left */}
-      <div className="branding-text">
-        <h1>Every journey begins here</h1>
-        <div className="amber-line" />
-      </div>
-
-      {/* Centered Login Card Wrapper */}
-      <div className="login-content-wrap">
-        <div style={{ width: "100%", maxWidth: "440px", margin: "0 auto 1.5rem", position: "relative", zIndex: 10 }}>
-          {loading && showLoading()}
-          {error && showError()}
+      {/* Main Responsive Flex Layout Container */}
+      <div className="login-container-inner">
+        {/* Branding Text */}
+        <div className="branding-text">
+          <h1>Every journey begins here</h1>
+          <div className="amber-line" />
         </div>
-        {!loading && (
-          <SignupForm
-            handleSubmit={handleSubmit}
-            handleOtpSubmit={handleOtpSubmit}
-            handleResend={handleResend}
-            handleChange={handleChange}
-            resendCooldown={resendCooldown}
-            state={state}
-          />
-        )}
+
+        {/* Centered Login Card Wrapper */}
+        <div className="login-content-wrap">
+          <div style={{ width: "100%", maxWidth: "440px", margin: "0 auto 1.5rem", position: "relative", zIndex: 10 }}>
+            {loading && showLoading()}
+            {error && showError()}
+          </div>
+          {!loading && (
+            <SignupForm
+              handleSubmit={handleSubmit}
+              handleOtpSubmit={handleOtpSubmit}
+              handleResend={handleResend}
+              handleChange={handleChange}
+              resendCooldown={resendCooldown}
+              state={state}
+            />
+          )}
+        </div>
       </div>
     </div>
   );

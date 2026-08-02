@@ -76,25 +76,28 @@ const Login = () => {
       />
       <div className="login-video-overlay-full" />
 
-      {/* Branding Text on Left */}
-      <div className="branding-text">
-        <h1>Every journey begins here</h1>
-        <div className="amber-line" />
-      </div>
-
-      {/* Centered Login Card Wrapper */}
-      <div className="login-content-wrap">
-        <div style={{ width: "100%", maxWidth: "380px", margin: "0 auto 1rem", position: "relative", zIndex: 10 }}>
-          {loading && showLoading()}
-          {error && showError()}
+      {/* Main Responsive Flex Layout Container */}
+      <div className="login-container-inner">
+        {/* Branding Text */}
+        <div className="branding-text">
+          <h1>Every journey begins here</h1>
+          <div className="amber-line" />
         </div>
-        {!loading && (
-          <SigninForm
-            handleSubmit={handleSubmit}
-            handleChange={handleChange}
-            state={state}
-          />
-        )}
+
+        {/* Centered Login Card Wrapper */}
+        <div className="login-content-wrap">
+          <div style={{ width: "100%", maxWidth: "380px", margin: "0 auto 1rem", position: "relative", zIndex: 10 }}>
+            {loading && showLoading()}
+            {error && showError()}
+          </div>
+          {!loading && (
+            <SigninForm
+              handleSubmit={handleSubmit}
+              handleChange={handleChange}
+              state={state}
+            />
+          )}
+        </div>
       </div>
 
       {isAuthenticated() && redirectUser()}

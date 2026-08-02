@@ -1,15 +1,16 @@
 @import 'variables';
 
 .login-dark, .login-wrapper {
-  height: 100vh !important;
+  min-height: 100vh !important;
   display: flex !important;
-  align-items: center !important;    /* vertical center */
-  justify-content: flex-end !important;
+  align-items: center !important;
+  justify-content: center !important;
   font-family: $font-family;
   background: $bg-body;
   position: relative;
-  overflow: hidden !important;
-  padding-right: 120px;
+  overflow-x: hidden !important;
+  padding: 2rem 1rem !important;
+  box-sizing: border-box !important;
 
   // ===== Full Page Video Background & Overlay =====
   .video-bg {
@@ -39,11 +40,23 @@
     pointer-events: none;
   }
 
-  .branding-text {
-    position: fixed;
-    bottom: 40%;
-    left: 10%;
+  .login-container-inner {
+    position: relative;
     z-index: 2;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+
+  .branding-text {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    max-width: 500px;
 
     h1 {
       font-size: 3.2rem;
@@ -53,7 +66,6 @@
       letter-spacing: -0.03em;
       line-height: 1.15;
       text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-      max-width: 520px;
       margin: 0;
     }
 
@@ -70,14 +82,12 @@
   .login-content-wrap {
     position: relative;
     z-index: 2;
+    flex: 0 0 400px;
     width: 100%;
-    max-width: 440px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: auto !important;
-    margin-bottom: auto !important;
   }
 
   .login-card {
@@ -85,7 +95,7 @@
     backdrop-filter: blur(12px) !important;
     -webkit-backdrop-filter: blur(12px) !important;
     border: 0.5px solid rgba(217, 119, 6, 0.25) !important;
-    margin-right: 60px !important;
+    margin: 0 !important;
   }
 
   // ===== Login/Signup Card Form styling =====
@@ -100,7 +110,7 @@
     border: 1.2px solid rgba(245, 158, 11, 0.22) !important;
     padding: 2.8rem 2.4rem 2.4rem;
     border-radius: 24px;
-    margin-right: 60px !important;
+    margin: 0 !important;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.55),
                 0 0 40px rgba(245, 158, 11, 0.05),
                 inset 0 0 24px rgba(255, 255, 255, 0.02);
@@ -380,23 +390,43 @@
 // Responsive layout for tablets/mobile screens
 @media (max-width: 860px) {
   .login-dark, .login-wrapper {
-    justify-content: center !important;
+    padding: 1.5rem 1rem !important;
+  }
+
+  .login-container-inner {
+    flex-direction: column !important;
     align-items: center !important;
-    padding-right: 0 !important;
-    padding: 1.2rem 1rem !important;
-    height: auto !important;
-    min-height: 100vh !important;
+    justify-content: center !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
   }
 
   .branding-text {
-    display: none !important;
+    display: block !important;
+    position: static !important;
+    text-align: center !important;
+    max-width: 100% !important;
+    margin-bottom: 0.2rem !important;
+
+    h1 {
+      font-size: 1.7rem !important;
+      line-height: 1.25 !important;
+      text-align: center !important;
+      margin: 0 !important;
+    }
+
+    .amber-line {
+      margin: 0.7rem auto 0 !important;
+      width: 45px !important;
+      height: 3px !important;
+    }
   }
 
   .login-content-wrap {
+    flex: none !important;
     width: 100% !important;
     max-width: 400px !important;
     margin: 0 auto !important;
-    padding: 0 !important;
   }
 
   .login-card,
