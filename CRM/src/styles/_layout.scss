@@ -435,17 +435,18 @@ h1, h2, h3, h4, h5, h6,
   .header-right {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.6rem;
+    flex-shrink: 0;
 
     .header-user-info {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.5rem;
       text-decoration: none !important;
 
       .header-avatar {
-        width: 34px;
-        height: 34px;
+        width: 32px;
+        height: 32px;
         border-radius: 50%;
         object-fit: cover;
         border: 1.5px solid rgba(245, 158, 11, 0.5);
@@ -458,23 +459,51 @@ h1, h2, h3, h4, h5, h6,
     }
 
     .header-signout-btn {
-      background: rgba(239, 68, 68, 0.1);
-      border: 1px solid rgba(239, 68, 68, 0.25);
-      color: #f87171;
-      padding: 0.35rem 0.8rem;
-      border-radius: $radius-pill;
-      font-size: 0.8rem;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-      transition: all 0.2s;
+      background: rgba(239, 68, 68, 0.15) !important;
+      border: 1px solid rgba(239, 68, 68, 0.35) !important;
+      color: #f87171 !important;
+      padding: 0.35rem 0.75rem !important;
+      border-radius: $radius-pill !important;
+      font-size: 0.78rem !important;
+      font-weight: 600 !important;
+      cursor: pointer !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 0.35rem !important;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+      transition: all 0.2s ease !important;
+
+      i {
+        font-size: 0.85rem !important;
+      }
 
       &:hover {
-        background: rgba(239, 68, 68, 0.25);
-        color: white;
+        background: rgba(239, 68, 68, 0.3) !important;
+        color: white !important;
       }
+    }
+  }
+}
+
+/* ==========================================================================
+   7. FOOTER
+   ========================================================================== */
+.crm-app-footer {
+  padding: 1.5rem 1rem !important;
+  text-align: center !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+  margin-top: 2rem !important;
+
+  .footer-content {
+    font-size: 0.85rem !important;
+    color: rgba(255, 255, 255, 0.45) !important;
+    font-family: $font-family !important;
+    letter-spacing: 0.3px !important;
+
+    strong {
+      color: $primary !important;
+      font-weight: 700 !important;
     }
   }
 }

@@ -62,7 +62,8 @@ const Header = ({ history }) => {
               <span className="header-user-name hidden-mobile">{user.name}</span>
             </Link>
             <button className="header-signout-btn" onClick={handleSignOut} title="Sign Out" type="button">
-              🚪 <span className="signout-text hidden-mobile">Logout</span>
+              <i className="fa fa-sign-out" />
+              <span className="signout-text">Logout</span>
             </button>
           </div>
         )}

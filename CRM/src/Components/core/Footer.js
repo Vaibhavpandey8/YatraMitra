@@ -2,17 +2,11 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="box-footer">
-      <div className="row">
-        <div>
-          <div className="description-block border-right">
-            <h5 className="description-header">
-              &copy; {new Date().getFullYear()} YatraMitra
-            </h5>
-          </div>
-        </div>
+    <footer className="crm-app-footer">
+      <div className="footer-content">
+        &copy; {new Date().getFullYear()} <strong>YatraMitra CRM</strong>. All rights reserved.
       </div>
-    </div>
+    </footer>
   );
 };
 
