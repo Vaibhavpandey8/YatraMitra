@@ -267,10 +267,22 @@
     .dashboard-card {
       padding: 1.2rem 0.9rem !important;
       border-radius: 14px !important;
+      width: 100% !important;
 
       .card-body-layout {
         flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
         gap: 1.2rem !important;
+
+        .chart-container {
+          margin: 0 auto !important;
+        }
+
+        .legend-container {
+          width: 100% !important;
+          margin: 0 auto !important;
+        }
       }
     }
   }
