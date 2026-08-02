@@ -222,8 +222,8 @@ class SingleCard extends React.Component {
           style={{ width: "100%", marginBottom: "1rem" }}
           onClick={this.showModal}
         >
-          <Row>
-            <Col span={3}>
+          <Row gutter={[8, 8]} align="middle">
+            <Col xs={6} sm={4} md={3}>
               <img
                 src={
                   !bus.image
@@ -237,9 +237,8 @@ class SingleCard extends React.Component {
                 onError={(e) => { e.target.onerror = null; e.target.src = "/static/img/suspense.jpg"; }}
               />
             </Col>
-            <Col span={1}></Col>
-            <Col span={4}>
-              <p style={{ margin: 0 }}>{bus.travel ? bus.travel.name : null}</p>
+            <Col xs={18} sm={8} md={5}>
+              <p style={{ margin: 0, fontWeight: 600 }}>{bus.travel ? bus.travel.name : null}</p>
               {typeof bus.averageRating !== "undefined" && bus.totalRatings > 0 ? (
                 <div style={{ fontSize: "0.8rem", color: "#fadb14", display: "flex", alignItems: "center", gap: "0.25rem", marginTop: "0.25rem" }}>
                   <span>⭐ {bus.averageRating.toFixed(1)}</span>
@@ -251,18 +250,20 @@ class SingleCard extends React.Component {
                 </div>
               )}
             </Col>
-            <Col span={4}>
-              <p>{bus.type}</p>
+            <Col xs={12} sm={6} md={4}>
+              <p style={{ margin: 0, fontSize: "0.85rem", color: "rgba(255,255,255,0.6)" }}>Type</p>
+              <p style={{ margin: 0 }}>{bus.type}</p>
             </Col>
-            <Col span={4}>
-              <strong>
-                <p>{bus.departure_time}</p>
-              </strong>
+            <Col xs={12} sm={6} md={4}>
+              <p style={{ margin: 0, fontSize: "0.85rem", color: "rgba(255,255,255,0.6)" }}>Departure</p>
+              <strong><p style={{ margin: 0 }}>{bus.departure_time}</p></strong>
             </Col>
-            <Col span={4}>
-              <p>{bus.seatsAvailable} seats</p>
+            <Col xs={12} sm={6} md={4}>
+              <p style={{ margin: 0, fontSize: "0.85rem", color: "rgba(255,255,255,0.6)" }}>Seats</p>
+              <p style={{ margin: 0 }}>{bus.seatsAvailable} seats</p>
             </Col>
-            <Col span={4}>
+            <Col xs={12} sm={6} md={4}>
+              <p style={{ margin: 0, fontSize: "0.85rem", color: "rgba(255,255,255,0.6)" }}>Fare</p>
               {bus.pricingStatus === "surge" && (
                 <div>
                   <p style={{ margin: 0, textDecoration: "line-through", color: "rgba(255, 255, 255, 0.4)", fontSize: "0.85rem" }}>Rs {bus.originalFare}</p>
@@ -278,11 +279,12 @@ class SingleCard extends React.Component {
                 </div>
               )}
               {(!bus.pricingStatus || bus.pricingStatus === "normal") && (
-                <p>Rs {bus.fare}</p>
+                <p style={{ margin: 0, fontWeight: "700", color: "#00BCD4" }}>Rs {bus.fare}</p>
               )}
             </Col>
           </Row>
         </Card>
+
         {this.state.visible && this.seatModal()}
       </>
     );

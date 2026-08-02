@@ -24,11 +24,11 @@ const Buses = ({ resp, info }) => {
     <Layout>
       <Param info={info}>
         <SearchMenu buses={buses} info={info} />
-        <Row className="row-container">
-          <Col span={6} className="main-filter">
+        <Row className="row-container" gutter={[0, 16]}>
+          <Col xs={24} sm={24} md={6} className="main-filter">
             <Filters info={info} setBuses={setBuses} setLoading={setLoading} />
           </Col>
-          <Col span={18}>
+          <Col xs={24} sm={24} md={18}>
             {loading ? <Loading /> : <Cards buses={buses} />}
           </Col>
         </Row>

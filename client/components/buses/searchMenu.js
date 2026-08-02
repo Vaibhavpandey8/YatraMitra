@@ -128,7 +128,7 @@ const SearchMenu = ({ buses, info }) => {
       <Select
         showSearch
         value={formData.startLocation}
-        style={{ width: 200, marginRight: "1rem" }}
+        className="bus-search-select"
         placeholder="eg- Delhi"
         optionFilterProp="children"
         onChange={onChangeFrom}
@@ -151,7 +151,7 @@ const SearchMenu = ({ buses, info }) => {
       <Select
         showSearch
         value={formData.endLocation}
-        style={{ width: 200, marginRight: "1rem" }}
+        className="bus-search-select"
         placeholder="eg- Uttar Pradesh"
         optionFilterProp="children"
         onChange={onChangeTo}
@@ -171,7 +171,7 @@ const SearchMenu = ({ buses, info }) => {
       <Button
         type="primary"
         icon="search"
-        style={{ marginLeft: "1rem" }}
+        className="bus-search-btn"
         onClick={routeTransition}
       >
         Search

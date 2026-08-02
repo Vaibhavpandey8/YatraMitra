@@ -485,7 +485,7 @@ body { font-family: 'Poppins', sans-serif; color: #1a1a2e; overflow-x: hidden; }
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
   flex-wrap: wrap;
   position: sticky;
   top: 74px; /* below sticky navbar */
@@ -519,8 +519,19 @@ body { font-family: 'Poppins', sans-serif; color: #1a1a2e; overflow-x: hidden; }
   font-weight: 700;
 }
 .row-container { margin: 2rem !important; }
-.checkbox-wrappper { margin: 1rem 0; }
+.checkbox-wrappper { margin: 0.6rem 0; }
 .main-filter { position: sticky !important; top: 14% !important; }
+.filter-card { width: 100% !important; }
+
+/* Bus Search Select & Button (responsive, replaces hardcoded inline widths) */
+.bus-search-select {
+  width: 180px !important;
+  flex-shrink: 0;
+}
+.bus-search-btn {
+  margin-left: 0 !important;
+}
+
 .buses-header {
   padding: 1rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -1687,6 +1698,71 @@ th.compare-ym {
   .auth-modal-container {
     padding: 1.5rem 1.2rem !important;
     max-width: 94% !important;
+  }
+
+  /* ===== BUS SEARCH PAGE MOBILE ===== */
+  .bus-search-menu {
+    position: relative !important;
+    top: 0 !important;
+    padding: 1rem !important;
+    gap: 0.6rem !important;
+    margin-bottom: 1rem !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .bus-search-menu label {
+    margin-bottom: 0 !important;
+  }
+  .bus-search-menu h4 {
+    font-size: 0.82rem !important;
+    margin-bottom: 0.2rem !important;
+  }
+  .bus-search-select {
+    width: 100% !important;
+  }
+  /* Override antd select width on mobile */
+  .bus-search-menu .ant-select {
+    width: 100% !important;
+  }
+  .bus-search-btn {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-top: 0.4rem !important;
+  }
+  .bus-search-menu .ant-btn {
+    width: 100% !important;
+  }
+  .row-container {
+    margin: 0.8rem !important;
+  }
+  .main-filter {
+    position: relative !important;
+    top: 0 !important;
+    margin-bottom: 1.2rem !important;
+  }
+  /* Filters card on mobile: show inline horizontal checkboxes */
+  .main-filter .ant-card {
+    width: 100% !important;
+    margin-bottom: 0.8rem !important;
+  }
+  .main-filter .ant-card > div[style*="90%"] {
+    width: 100% !important;
+  }
+  /* Bus cards get full width */
+  .single-card {
+    margin-bottom: 0.8rem !important;
+  }
+  .single-card .ant-card-body {
+    padding: 0.8rem !important;
+  }
+  /* Bus thumbnail smaller on mobile */
+  .bus-thumbnail {
+    height: 3rem !important;
+  }
+  /* Spinner */
+  .spinner {
+    width: 100% !important;
+    height: 20rem !important;
   }
 }
 

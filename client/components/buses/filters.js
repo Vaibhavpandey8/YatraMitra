@@ -78,8 +78,8 @@ const Filters = ({ info, setBuses, setLoading }) => {
     setTravels(travels);
   };
   return (
-    <div style={{ marginRight: "2rem" }}>
-      <Card className="mb-2" style={{ width: "90%" }}>
+    <div style={{ marginRight: "1rem" }}>
+      <Card className="mb-2 filter-card">
         <h1>Travels: </h1>
         {travels.map(travel => (
           <div key={travel._id} className="checkbox-wrappper">
@@ -90,7 +90,7 @@ const Filters = ({ info, setBuses, setLoading }) => {
         ))}
       </Card>
 
-      <Card className="mb-2" style={{ width: "90%" }}>
+      <Card className="mb-2 filter-card">
         <h1>Bus Type: </h1>
         <div className="checkbox-wrappper">
           <Checkbox name="AC" onChange={onChangeType}>
