@@ -381,16 +381,40 @@
 @media (max-width: 860px) {
   .login-dark, .login-wrapper {
     justify-content: center !important;
+    align-items: center !important;
     padding-right: 0 !important;
-    padding: 1.5rem;
+    padding: 1.2rem 1rem !important;
+    height: auto !important;
+    min-height: 100vh !important;
   }
 
   .branding-text {
     display: none !important;
   }
 
-  .login-card, form.login-form {
+  .login-content-wrap {
+    width: 100% !important;
+    max-width: 400px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+
+  .login-card,
+  form.login-form {
     margin-right: 0 !important;
+    margin-left: 0 !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 2rem 1.4rem 1.6rem !important;
+    box-sizing: border-box !important;
+  }
+
+  form.login-form .admin-badge {
+    top: 1rem !important;
+    right: 1rem !important;
+    font-size: 0.65rem !important;
+    padding: 0.2rem 0.5rem !important;
   }
 }
 
