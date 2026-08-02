@@ -57,12 +57,21 @@ class Details extends React.Component {
     }
     try {
       const profile = await getUserProfileApi(token);
-      if (profile && typeof profile.wallet !== "undefined") {
-        this.setState({ wallet: profile.wallet });
+      if (profile && !profile.error) {
+        this.setState({
+          wallet: typeof profile.wallet !== "undefined" ? profile.wallet : null,
+          phone: this.state.phone || profile.phone || "",
+          address: this.state.address || profile.address || "",
+          email: this.state.email || profile.email || ""
+        });
       }
     } catch (err) {
       console.error("Error fetching wallet balance:", err);
     }
+  };
+
+  handleNumber = value => {
+    this.setState({ phone: value });
   };
 
   getSeatList = () => {
@@ -241,6 +250,7 @@ class Details extends React.Component {
     }
 
     let success = true;
+    let errorMessage = "";
     const token = getAuthToken();
     const pricePerSeat = totalCost / numSeats;
 
@@ -269,6 +279,7 @@ class Details extends React.Component {
       const resp = await postBookSeat(this.props.slug, info, token);
       if (resp && resp.error) {
         success = false;
+        errorMessage = resp.error;
         break;
       }
     }
@@ -279,13 +290,13 @@ class Details extends React.Component {
       }
       this.sweetAlert("success");
     } else {
-      this.sweetAlert("error");
+      this.sweetAlert("error", errorMessage);
     }
   };
 
-  sweetAlert = status => {
+  sweetAlert = (status, errorMsg) => {
     setTimeout(() => {
-      if(status !== "error"){
+      if (status !== "error") {
         Router.push("/dashboard");
       }
     }, 1000);
@@ -293,8 +304,8 @@ class Details extends React.Component {
     if (status === "error") {
       return Swal.fire({
         icon: "error",
-        title: "Oops...",
-        text: "Something went wrong!"
+        title: "Booking Failed",
+        text: errorMsg || "Something went wrong! Please verify details and try again."
       });
     } else {
       Swal.fire("Congrats!", "Your seat is booked", "success");
@@ -375,17 +386,20 @@ class Details extends React.Component {
               <br />
               <Input.Group>
                 <h4>Current Address *</h4>
-                <Input onChange={this.handleChange} name="address" />
+                <Input onChange={this.handleChange} name="address" value={this.state.address} placeholder="Enter address" />
               </Input.Group>
               <br />
               <Row gutter={[8, 8]}>
                 <Col xs={24} sm={11}>
                   <Input.Group>
                     <h4>Primary Mobile *</h4>
-                    <InputNumber
+                    <Input
+                      type="number"
                       style={{ width: "100%" }}
-                      onChange={this.handleNumber}
+                      onChange={this.handleChange}
                       name="phone"
+                      value={this.state.phone}
+                      placeholder="Enter mobile number"
                     />
                   </Input.Group>
                 </Col>

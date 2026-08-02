@@ -37,7 +37,7 @@ const Cards = ({ buses = [] }) => {
         </h4> */}
         <div>
           <hr />
-          <Row className="buses-header">
+          <Row className="buses-header buses-header-desktop">
             <Col span={4}></Col>
             <Col span={4}>
               <h3>Travels</h3>

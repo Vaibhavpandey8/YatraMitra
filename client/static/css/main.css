@@ -1750,6 +1750,10 @@ th.compare-ym {
   .row-container {
     margin: 0.8rem !important;
   }
+  .buses-header,
+  .buses-header-desktop {
+    display: none !important;
+  }
   .main-filter {
     position: relative !important;
     top: 0 !important;
