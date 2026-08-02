@@ -172,6 +172,59 @@ body { font-family: 'Poppins', sans-serif; color: #1a1a2e; overflow-x: hidden; }
 }
 .nav-profile:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,188,212,0.4); }
 
+/* ===== NAV AUTH BUTTONS (Sign In / Sign Up) ===== */
+.nav-auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-signin-btn {
+  color: white;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0 1.3rem;
+  height: 38px;
+  border-radius: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+.nav-signin-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+.nav-signup-btn {
+  color: white;
+  background: linear-gradient(135deg, #00BCD4, #0097a7);
+  border: 1px solid transparent;
+  padding: 0 1.3rem;
+  height: 38px;
+  border-radius: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 188, 212, 0.4);
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+.nav-signup-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 188, 212, 0.55);
+}
+
 .header-wallet-btn {
   display: flex;
   align-items: center;
@@ -1506,6 +1559,30 @@ th.compare-ym {
     display: inline-flex !important;
     align-items: center !important;
   }
+  .nav-auth-buttons {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.3rem !important;
+  }
+  .nav-signin-btn {
+    height: 32px !important;
+    padding: 0 0.7rem !important;
+    font-size: 0.75rem !important;
+    border-radius: 16px !important;
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+  .nav-signup-btn {
+    height: 32px !important;
+    padding: 0 0.7rem !important;
+    font-size: 0.75rem !important;
+    border-radius: 16px !important;
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+
   .nav-profile-img {
     width: 22px !important;
     height: 22px !important;
