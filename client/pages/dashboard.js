@@ -331,42 +331,44 @@ const Dashboard = () => {
             <div className="bookings-list">
               {bookings.map((booking) => (
                 <Card key={booking._id} className="booking-list-card" bordered={false}>
-                  <Row align="middle" gutter={[16, 24]}>
-                    <Col xs={24} md={16}>
-                      <div className="booking-bus-info">
-                        <div className="ticket-bus-icon">🎫</div>
-                        <div>
+                  <div className="booking-card-inner">
+                    <div className="booking-bus-info">
+                      <div className="ticket-bus-icon">🚌</div>
+                      <div className="booking-details-body">
+                        <div className="booking-top-row">
                           <h3 className="booking-bus-name">
                             {booking.bus.travel ? booking.bus.travel.name : "Travels"} - {booking.bus.name || "Express"}
                           </h3>
-                          <div className="booking-route-detail">
-                            <span className="route-text">
-                              {booking.bus.startLocation.name} ➔ {booking.bus.endLocation.name}
-                            </span>
-                            <span className="divider-dot">•</span>
-                            <span className="date-text">📅 {booking.bus.journeyDate}</span>
-                            <span className="divider-dot">•</span>
-                            <span className="time-text">🕒 {booking.bus.departure_time}</span>
-                          </div>
-                          <div className="booking-seat-detail">
-                            <span>Seat Number: <strong className="seat-badge">{booking.seatNumber}</strong></span>
-                            <span className="divider-dot">•</span>
-                            <span>Fare: <strong>Rs. {booking.price || booking.bus.fare}</strong></span>
+                          <div className="status-badge-desktop">
+                            {renderStatus(booking.verification)}
                           </div>
                         </div>
+
+                        <div className="booking-route-detail">
+                          <span className="route-text">
+                            📍 {booking.bus.startLocation ? booking.bus.startLocation.name : "Origin"} ➔ {booking.bus.endLocation ? booking.bus.endLocation.name : "Destination"}
+                          </span>
+                        </div>
+
+                        <div className="booking-meta-row">
+                          <span className="meta-item">📅 {booking.bus.journeyDate}</span>
+                          <span className="meta-item">🕒 {booking.bus.departure_time}</span>
+                          <span className="meta-item">Seat: <strong className="seat-badge">{booking.seatNumber}</strong></span>
+                          <span className="meta-item fare-item">Fare: <strong>Rs. {booking.price || booking.bus.fare}</strong></span>
+                        </div>
                       </div>
-                    </Col>
-                    <Col xs={24} md={8} className="booking-actions-section">
-                      <div className="status-wrapper">
+                    </div>
+
+                    <div className="booking-card-actions">
+                      <div className="status-badge-mobile">
                         {renderStatus(booking.verification)}
                       </div>
-                      <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem", width: "100%" }}>
+                      <div className="booking-btn-group">
                         <Button
                           type="primary"
                           icon="download"
                           onClick={() => handleDownloadTicket(booking)}
                           className="download-ticket-btn"
-                          style={{ width: "100%" }}
                         >
                           Download Ticket 📥
                         </Button>
@@ -374,8 +376,8 @@ const Dashboard = () => {
                           <Button
                             type="dashed"
                             onClick={() => handleOpenRatingModal(booking)}
+                            className="rate-review-btn"
                             style={{
-                              width: "100%",
                               background: "rgba(250, 219, 20, 0.05)",
                               borderColor: "#fadb14",
                               color: "#fadb14",
@@ -386,8 +388,8 @@ const Dashboard = () => {
                           </Button>
                         )}
                       </div>
-                    </Col>
-                  </Row>
+                    </div>
+                  </div>
                 </Card>
               ))}
             </div>
