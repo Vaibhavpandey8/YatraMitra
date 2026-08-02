@@ -74,19 +74,12 @@ const ProfilePage = () => {
 
   return (
     <Layout>
-      <div style={{ padding: "4rem 2rem", maxWidth: "700px", margin: "0 auto", color: "white" }}>
-        <h1 style={{ textAlign: "center", marginBottom: "3rem", fontSize: "2.5rem", fontWeight: "800" }}>
+      <div className="profile-container">
+        <h1 className="profile-title">
           My <span style={{ color: "#e91e63" }}>Profile</span>
         </h1>
 
-        <Card style={{
-          background: "rgba(255, 255, 255, 0.05)",
-          border: "1px solid rgba(255, 255, 255, 0.08)",
-          borderRadius: "24px",
-          boxShadow: "0 10px 30px rgba(233, 30, 99, 0.15)",
-          padding: "2rem",
-          textAlign: "center"
-        }} bordered={false}>
+        <Card className="profile-card" bordered={false}>
           
           <div style={{
             width: "100px",

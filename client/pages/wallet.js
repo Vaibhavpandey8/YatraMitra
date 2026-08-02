@@ -156,48 +156,31 @@ const WalletPage = () => {
 
   return (
     <Layout>
-      <div style={{ padding: "4rem 2rem", maxWidth: "800px", margin: "0 auto", color: "white" }}>
-        <h1 style={{ textAlign: "center", marginBottom: "3rem", fontSize: "2.5rem", fontWeight: "800" }}>
+      <div className="wallet-container">
+        <h1 className="wallet-title">
           <span style={{ color: "#FF6B35" }}>YatraMitra </span> Wallet
         </h1>
 
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "2rem" }}>
-          <div style={{ flex: "1 1 300px", display: "flex" }}>
-            <Card style={{
-              background: "rgba(255, 255, 255, 0.05)",
-              border: "1px solid rgba(255, 255, 255, 0.08)",
-              borderRadius: "18px",
-              boxShadow: "0 10px 30px rgba(255, 107, 53, 0.15)",
-              textAlign: "center",
-              padding: "2rem",
-              width: "100%",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center"
-            }} bordered={false}>
-              <div style={{ fontSize: "3.5rem", marginBottom: "0.5rem" }}>👛</div>
-              <h3 style={{ color: "rgba(255, 255, 255, 0.6)", fontSize: "0.9rem", textTransform: "uppercase", letterSpacing: "1px" }}>Available Balance</h3>
-              <div style={{ fontSize: "2.8rem", fontWeight: "900", color: "#FF6B35", margin: "0.5rem 0" }}>
+        <Row gutter={[20, 20]} justify="center">
+          <Col xs={24} md={12} style={{ display: "flex" }}>
+            <Card className="wallet-card wallet-balance-card" bordered={false}>
+              <div className="wallet-icon">👛</div>
+              <h3 className="wallet-subtitle">Available Balance</h3>
+              <div className="wallet-balance-amount">
                 ₹{wallet !== null ? wallet : 0}
               </div>
-              <Tag color="orange" style={{ fontSize: "0.85rem", padding: "0.2rem 0.6rem" }}>Instant Confirmation Active ⚡</Tag>
+              <Tag color="orange" style={{ fontSize: "0.85rem", padding: "0.2rem 0.6rem", marginTop: "0.5rem" }}>
+                Instant Confirmation Active ⚡
+              </Tag>
             </Card>
-          </div>
+          </Col>
 
-          <div style={{ flex: "1 1 300px", display: "flex" }}>
-            <Card style={{
-              background: "rgba(255, 255, 255, 0.05)",
-              border: "1px solid rgba(255, 255, 255, 0.08)",
-              borderRadius: "18px",
-              padding: "2rem",
-              width: "100%",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center"
-            }} bordered={false}>
-              <h3 style={{ color: "white", fontWeight: "700", fontSize: "1.2rem", marginBottom: "1rem" }}>Recharge Wallet</h3>
-              <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.85rem", marginBottom: "1.5rem" }}>
+          <Col xs={24} md={12} style={{ display: "flex" }}>
+            <Card className="wallet-card wallet-recharge-card" bordered={false}>
+              <h3 style={{ color: "white", fontWeight: "700", fontSize: "1.2rem", marginBottom: "0.8rem" }}>
+                Recharge Wallet
+              </h3>
+              <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.85rem", marginBottom: "1.2rem", lineHeight: "1.5" }}>
                 Add funds to your wallet using secure UPI, Cards, or NetBanking to book seats instantly.
               </p>
 
@@ -215,7 +198,7 @@ const WalletPage = () => {
                     style={{
                       width: "100%", padding: "0.75rem 1rem 0.75rem 2.2rem",
                       background: "rgba(255, 255, 255, 0.04)", border: "1px solid rgba(255, 255, 255, 0.08)",
-                      borderRadius: "12px", color: "white", outline: "none"
+                      borderRadius: "12px", color: "white", outline: "none", boxSizing: "border-box"
                     }}
                     placeholder="Enter amount (min ₹100)"
                     value={rechargeAmount}
@@ -247,16 +230,10 @@ const WalletPage = () => {
                 {rechargeLoading ? "Connecting to Razorpay..." : `Add ₹${rechargeAmount || "0"} to Wallet`}
               </Button>
             </Card>
-          </div>
-        </div>
+          </Col>
+        </Row>
 
-        <Card style={{
-          background: "rgba(255, 255, 255, 0.03)",
-          border: "1px solid rgba(255, 255, 255, 0.06)",
-          borderRadius: "18px",
-          marginTop: "2rem",
-          padding: "1.5rem"
-        }} title={<span style={{ color: "white", fontWeight: "700" }}>👛 Wallet Benefits</span>} bordered={false}>
+        <Card className="wallet-card wallet-benefits-card" title={<span style={{ color: "white", fontWeight: "700" }}>👛 Wallet Benefits</span>} bordered={false}>
           <ul style={{ color: "rgba(255, 255, 255, 0.75)", paddingLeft: "1.2rem", lineHeight: "2" }}>
             <li><strong>Instant Bookings:</strong> Skip payment gateways at checkout for 1-click instant seat confirmation.</li>
             <li><strong>5% Cashback:</strong> Automatically earn 5% cashback directly into your wallet on every booking.</li>
