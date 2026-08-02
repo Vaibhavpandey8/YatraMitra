@@ -100,10 +100,12 @@ class AuthModal extends Component {
 
       const buttonDiv = document.getElementById("google-signin-btn-div");
       if (buttonDiv) {
+        const parentWidth = buttonDiv.parentElement ? buttonDiv.parentElement.clientWidth : 280;
+        const targetWidth = Math.max(200, Math.min(parentWidth, 280));
         window.google.accounts.id.renderButton(buttonDiv, {
           theme: "outline",
           size: "large",
-          width: 320,
+          width: targetWidth,
           text: "signin_with",
           shape: "rectangular"
         });

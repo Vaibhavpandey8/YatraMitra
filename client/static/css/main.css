@@ -1548,6 +1548,24 @@ th.compare-ym {
     grid-template-columns: 1fr !important;
     gap: 2rem !important;
   }
+
+  /* Auth Modal Mobile Spacing */
+  .auth-modal-container {
+    padding: 1.5rem 1.2rem !important;
+    max-width: 94% !important;
+  }
+}
+
+/* Google Sign-in Button Responsiveness */
+#google-signin-btn-div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+#google-signin-btn-div iframe {
+  max-width: 100% !important;
+  border-radius: 12px;
 }
 
 
