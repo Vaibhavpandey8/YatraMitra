@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import { getAuthUser, getAuthToken, getUserProfileApi, createRazorpayOrderApi, verifyRazorpayPaymentApi } from "../utils/auth";
-import { Card, Button, Spin, Tag } from "antd";
+import { Card, Button, Spin, Tag, Row, Col } from "antd";
 import Router from "next/router";
 import Swal from "sweetalert2";
 
