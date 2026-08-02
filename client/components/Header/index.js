@@ -295,7 +295,7 @@ const Nav = () => {
       {/* Recharge Modal */}
       {showRechargeModal && (
         <div className="auth-modal-overlay" style={{ zIndex: 1001 }}>
-          <div className="auth-modal-container" style={{ width: "450px" }}>
+          <div className="auth-modal-container" style={{ maxWidth: "450px", width: "90%" }}>
             <button className="auth-close-btn" onClick={() => setShowRechargeModal(false)}>×</button>
             <div className="auth-header">
               <h2 className="auth-title">Recharge YatraMitra Wallet</h2>
