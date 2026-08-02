@@ -1833,6 +1833,9 @@ th.compare-ym {
   font-weight: 800;
   color: white;
 }
+.wallet-col-item {
+  display: flex !important;
+}
 .wallet-card {
   background: rgba(255, 255, 255, 0.05) !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
@@ -1858,7 +1861,7 @@ th.compare-ym {
   height: 100%;
 }
 .wallet-benefits-card {
-  margin-top: 2rem;
+  margin-top: 2rem !important;
 }
 .wallet-icon {
   font-size: 3.2rem;

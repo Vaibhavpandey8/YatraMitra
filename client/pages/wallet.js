@@ -161,8 +161,8 @@ const WalletPage = () => {
           <span style={{ color: "#FF6B35" }}>YatraMitra </span> Wallet
         </h1>
 
-        <Row gutter={[20, 20]} justify="center">
-          <Col xs={24} md={12} style={{ display: "flex" }}>
+        <Row gutter={24} justify="center">
+          <Col xs={24} md={12} className="wallet-col-item">
             <Card className="wallet-card wallet-balance-card" bordered={false}>
               <div className="wallet-icon">👛</div>
               <h3 className="wallet-subtitle">Available Balance</h3>
@@ -175,7 +175,7 @@ const WalletPage = () => {
             </Card>
           </Col>
 
-          <Col xs={24} md={12} style={{ display: "flex" }}>
+          <Col xs={24} md={12} className="wallet-col-item">
             <Card className="wallet-card wallet-recharge-card" bordered={false}>
               <h3 style={{ color: "white", fontWeight: "700", fontSize: "1.2rem", marginBottom: "0.8rem" }}>
                 Recharge Wallet
