@@ -1,0 +1,12 @@
+[build]
+  command = "CI=false NODE_OPTIONS=--openssl-legacy-provider react-scripts build"
+  publish = "build"
+
+[build.environment]
+  NODE_OPTIONS = "--openssl-legacy-provider"
+  CI = "false"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

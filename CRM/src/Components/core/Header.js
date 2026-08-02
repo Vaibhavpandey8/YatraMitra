@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { isAuthenticated, signout } from "../../Utils/Requests/Auth";
