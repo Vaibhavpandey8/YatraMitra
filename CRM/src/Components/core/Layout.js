@@ -8,6 +8,10 @@ const Layout = ({ children, className = 'content-wrapper', title = 'Dashboard' }
 		<div>
 			<Header />
 			<SideBar />
+			<div
+				className="sidebar-overlay"
+				onClick={() => document.body.classList.remove("sidebar-open")}
+			></div>
 			<div className={className}>
 				<section className="content-header">
 					<div className="row">

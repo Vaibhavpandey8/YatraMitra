@@ -279,7 +279,7 @@ const SideBar = memo(({ history }) => {
   };
   return (
     <>
-      <aside className="main-sidebar">
+      <aside className="main-sidebar" onClick={(e) => { if (e.target.tagName === 'A' || e.target.closest('a')) { document.body.classList.remove('sidebar-open'); } }}>
         <section className="sidebar">
           <div className="user-panel">
             <div className="pull-left image">
