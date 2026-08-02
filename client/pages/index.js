@@ -411,10 +411,13 @@ const Home = () => {
                     )}
                   </div>
                 </div>
+
+                <div className="search-field search-btn-field">
+                  <button className="search-btn" onClick={dummytransition}>
+                    🔍 Search Buses
+                  </button>
+                </div>
               </div>
-              <button className="search-btn" onClick={dummytransition}>
-                🔍 Search Buses
-              </button>
             </div>
           </div>
         </section>

@@ -210,7 +210,7 @@ const CompareBuses = () => {
         {/* SEARCH BOX CARD */}
         <div style={{ display: "flex", justifyContent: "center", padding: "0 2rem" }}>
           <div className="search-box" style={{ background: "rgba(255, 255, 255, 0.05)", border: "1px solid rgba(255, 255, 255, 0.08)", backdropFilter: "blur(20px)", borderRadius: "20px" }}>
-            <div className="search-row" style={{ gridTemplateColumns: "1fr 1fr" }}>
+            <div className="search-row" style={{ display: "grid", gridTemplateColumns: "1fr 1fr auto" }}>
               <div className="search-field">
                 <label style={{ color: "rgba(255, 255, 255, 0.85)" }}>From</label>
                 <div className="input-wrap">
@@ -260,10 +260,13 @@ const CompareBuses = () => {
                   )}
                 </div>
               </div>
+
+              <div className="search-field search-btn-field" style={{ display: "flex", alignItems: "flex-end" }}>
+                <button className="search-btn" onClick={handleSearch} style={{ background: "linear-gradient(135deg, #FF6B35, #FF4500)", border: "none", color: "white", padding: "0.8rem 2rem", borderRadius: "12px", cursor: "pointer", fontWeight: "600" }}>
+                  📊 Compare Live Rates
+                </button>
+              </div>
             </div>
-            <button className="search-btn" onClick={handleSearch} style={{ background: "linear-gradient(135deg, #FF6B35, #FF4500)", border: "none", color: "white", padding: "0.8rem 2rem", borderRadius: "12px", cursor: "pointer", width: "100%", fontWeight: "600" }}>
-              📊 Compare Live Rates
-            </button>
           </div>
         </div>
 
