@@ -209,8 +209,8 @@ const CompareBuses = () => {
 
         {/* SEARCH BOX CARD */}
         <div style={{ display: "flex", justifyContent: "center", padding: "0 2rem" }}>
-          <div className="search-box" style={{ background: "rgba(255, 255, 255, 0.05)", border: "1px solid rgba(255, 255, 255, 0.08)", backdropFilter: "blur(20px)", borderRadius: "20px" }}>
-            <div className="search-row" style={{ display: "grid", gridTemplateColumns: "1fr 1fr auto" }}>
+          <div className="search-box">
+            <div className="search-row">
               <div className="search-field">
                 <label style={{ color: "rgba(255, 255, 255, 0.85)" }}>From</label>
                 <div className="input-wrap">
@@ -261,8 +261,8 @@ const CompareBuses = () => {
                 </div>
               </div>
 
-              <div className="search-field search-btn-field" style={{ display: "flex", alignItems: "flex-end" }}>
-                <button className="search-btn" onClick={handleSearch} style={{ background: "linear-gradient(135deg, #FF6B35, #FF4500)", border: "none", color: "white", padding: "0.8rem 2rem", borderRadius: "12px", cursor: "pointer", fontWeight: "600" }}>
+              <div className="search-field search-btn-field">
+                <button className="search-btn" onClick={handleSearch} style={{ background: "linear-gradient(135deg, #FF6B35, #FF4500)", border: "none", color: "white" }}>
                   📊 Compare Live Rates
                 </button>
               </div>
@@ -271,14 +271,14 @@ const CompareBuses = () => {
         </div>
 
         {/* COMPARISON TABLE */}
-        <section className="section" style={{ marginTop: "3rem", paddingLeft: "2rem", paddingRight: "2rem" }}>
+        <section className="section" style={{ marginTop: "3rem", paddingLeft: "1rem", paddingRight: "1rem" }}>
           {hasSearched && buses.length === 0 && (
             <div style={{ textAlign: "center", background: "rgba(255, 107, 53, 0.1)", border: "1px solid rgba(255, 107, 53, 0.2)", padding: "1.5rem", borderRadius: "15px", maxWidth: "1100px", margin: "0 auto 2rem", color: "#FF6B35" }}>
               ⚠️ No active YatraMitra bus was found for the selected route. Showing mock demonstration data below.
             </div>
           )}
 
-          <div className="comparison-table-wrapper" style={{ padding: "1.8rem" }}>
+          <div className="comparison-table-wrapper">
             <table className="comparison-table" style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead>
                 <tr style={{ borderBottom: "2px solid rgba(255,255,255,0.15)" }}>
@@ -391,9 +391,9 @@ const CompareBuses = () => {
         </section>
 
         {/* COMPARISON INFO DETAILS */}
-        <section className="section" style={{ maxWidth: "1100px", margin: "0 auto", paddingLeft: "2rem", paddingRight: "2rem" }}>
+        <section className="section" style={{ maxWidth: "1100px", margin: "0 auto", paddingLeft: "1.5rem", paddingRight: "1.5rem" }}>
           <h3 style={{ color: "white", fontSize: "1.5rem", marginBottom: "1.5rem", fontWeight: "700" }}>Why booking tickets on YatraMitra is smarter?</h3>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1.5rem" }}>
+          <div className="compare-features-grid">
             <div style={{ background: "rgba(255,255,255,0.02)", padding: "1.5rem", borderRadius: "15px", border: "1px solid rgba(255,255,255,0.06)" }}>
               <h4 style={{ color: "#00BCD4", fontWeight: "700", marginBottom: "0.5rem" }}>👛 Zero Convenience Charges</h4>
               <p style={{ color: "rgba(255,255,255,0.65)", fontSize: "0.85rem", lineHeight: "1.6" }}>

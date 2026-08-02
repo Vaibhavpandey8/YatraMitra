@@ -1809,6 +1809,10 @@ th.compare-ym {
   .dashboard-stat-box {
     margin-bottom: 1rem !important;
   }
+  .compare-features-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
 }
 
 /* Google Sign-in Button Responsiveness */
@@ -1910,6 +1914,13 @@ th.compare-ym {
 .profile-card .ant-card-body {
   padding: 2rem;
 }
+
+.compare-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
 
 
 
