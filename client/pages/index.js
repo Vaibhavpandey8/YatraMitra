@@ -363,7 +363,7 @@ const Home = () => {
             </p>
 
             <div className="search-box">
-              <div className="search-row" style={{ gridTemplateColumns: "1fr 1fr" }}>
+              <div className="search-row">
                 <div className="search-field">
                   <label>From</label>
                   <div className="input-wrap">

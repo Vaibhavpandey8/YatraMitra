@@ -1439,7 +1439,7 @@ th.compare-ym {
   font-weight: bold;
 }
 
-/* ===== MOBILE RESPONSIVE NAVBAR ===== */
+/* ===== MOBILE RESPONSIVE LAYOUT & NAVIGATION ===== */
 @media (max-width: 768px) {
   .navbar {
     display: grid;
@@ -1489,6 +1489,64 @@ th.compare-ym {
   .nav-profile {
     padding: 0.4rem 0.8rem !important;
     font-size: 0.8rem !important;
+  }
+
+  /* Hero & Typography Mobile Rules */
+  .hero {
+    padding: 2rem 1rem 3rem !important;
+    min-height: auto !important;
+  }
+  .hero-title {
+    font-size: 2.1rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0.8rem !important;
+  }
+  .hero-subtitle {
+    font-size: 0.95rem !important;
+    margin-bottom: 1.8rem !important;
+  }
+
+  /* Search Card Mobile Rules */
+  .search-box {
+    padding: 1.2rem 1rem !important;
+    border-radius: 16px !important;
+  }
+  .search-row {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Section Spacing & Titles */
+  .section {
+    padding: 3rem 1.2rem !important;
+  }
+  .section-title {
+    font-size: 1.6rem !important;
+    margin-bottom: 1.8rem !important;
+  }
+
+  /* Grids: Routes, Offers & Features -> Single Column on Mobile */
+  .routes-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  .offers-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.2rem !important;
+  }
+  .features-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.2rem !important;
+  }
+
+  /* Footer Mobile Rules */
+  .footer {
+    padding: 3rem 1.5rem !important;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
   }
 }
 
