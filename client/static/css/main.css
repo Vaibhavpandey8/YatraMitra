@@ -1782,6 +1782,9 @@ th.compare-ym {
     font-size: 1.6rem !important;
     margin-bottom: 1.5rem !important;
   }
+  .wallet-col-item {
+    margin-bottom: 1.5rem !important;
+  }
   .wallet-balance-card .ant-card-body,
   .wallet-recharge-card .ant-card-body,
   .wallet-benefits-card .ant-card-body {
@@ -1802,6 +1805,9 @@ th.compare-ym {
   }
   .profile-card .ant-card-body {
     padding: 1.2rem 1rem !important;
+  }
+  .dashboard-stat-box {
+    margin-bottom: 1rem !important;
   }
 }
 
