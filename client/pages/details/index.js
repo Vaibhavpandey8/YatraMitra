@@ -355,9 +355,9 @@ class Details extends React.Component {
   render() {
     return (
       <Layout>
-        <Row className="row-container">
-          <Col span={3}></Col>
-          <Col span={10}>
+        <Row className="row-container" gutter={[16, 16]}>
+          <Col xs={24} sm={24} md={3}></Col>
+          <Col xs={24} sm={24} md={10}>
             {this.renderPassengersForm()}
             
             <Card title="Common Details & Boarding" style={{ width: "100%" }}>
@@ -378,8 +378,8 @@ class Details extends React.Component {
                 <Input onChange={this.handleChange} name="address" />
               </Input.Group>
               <br />
-              <Row>
-                <Col span={11}>
+              <Row gutter={[8, 8]}>
+                <Col xs={24} sm={11}>
                   <Input.Group>
                     <h4>Primary Mobile *</h4>
                     <InputNumber
@@ -389,8 +389,8 @@ class Details extends React.Component {
                     />
                   </Input.Group>
                 </Col>
-                <Col span={2}></Col>
-                <Col span={11}>
+                <Col xs={0} sm={2}></Col>
+                <Col xs={24} sm={11}>
                   <Input.Group>
                     <h4>Boarding Point: </h4>
                     <Select defaultValue="Buspark" style={{ width: "100%" }}>
@@ -414,8 +414,8 @@ class Details extends React.Component {
               </Button>
             </Card>
           </Col>
-          <Col span={1}></Col>
-          <Col span={6}>
+          <Col xs={24} sm={24} md={1}></Col>
+          <Col xs={24} sm={24} md={6}>
             <Card title="Travel Details" style={{ width: "100%" }}>
               <p>
                 <b>Route: </b>
@@ -501,7 +501,7 @@ class Details extends React.Component {
               )}
             </Card>
           </Col>
-          <Col span={4}></Col>
+          <Col xs={0} sm={0} md={4}></Col>
         </Row>
       </Layout>
     );
