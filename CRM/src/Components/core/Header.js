@@ -10,6 +10,7 @@ const Header = ({ history }) => {
 
   const toggleSidebar = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     document.body.classList.toggle("sidebar-open");
   };
 
@@ -27,8 +28,10 @@ const Header = ({ history }) => {
         <button
           className="mobile-sidebar-toggle-btn"
           onClick={toggleSidebar}
+          onTouchEnd={toggleSidebar}
           aria-label="Toggle Navigation Menu"
           type="button"
+          title="Open Navigation Menu"
         >
           ☰
         </button>
