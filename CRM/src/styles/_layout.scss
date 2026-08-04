@@ -344,6 +344,10 @@ h1, h2, h3, h4, h5, h6,
   right: 0 !important;
   height: 40px !important;
 
+  .mobile-sidebar-toggle-btn {
+    display: none !important;
+  }
+
   .header-marquee.full-width {
     width: 100% !important;
     height: 40px !important;
@@ -906,6 +910,24 @@ select option {
     display: none !important;
   }
 
+  .mobile-sidebar-toggle-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(8, 13, 24, 0.2) !important;
+    border: 1px solid rgba(8, 13, 24, 0.35) !important;
+    color: #080d18 !important;
+    font-size: 1.15rem !important;
+    font-weight: 800 !important;
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    margin-left: 0.5rem !important;
+    flex-shrink: 0 !important;
+    z-index: 12 !important;
+  }
+
   .main-header {
     height: 40px !important;
   }
@@ -916,7 +938,7 @@ select option {
     left: -260px !important;
     width: 260px !important;
     height: calc(100vh - 40px) !important;
-    z-index: 900 !important;
+    z-index: 1050 !important;
     transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
     background: rgba(13, 21, 38, 0.98) !important;
     backdrop-filter: blur(20px) !important;
@@ -977,11 +999,17 @@ select option {
 
     .main-sidebar {
       left: 0 !important;
-      box-shadow: 15px 0 40px rgba(0, 0, 0, 0.7) !important;
+      box-shadow: 15px 0 40px rgba(0, 0, 0, 0.8) !important;
     }
 
     .sidebar-overlay {
       display: block !important;
+      position: fixed !important;
+      inset: 0 !important;
+      top: 40px !important;
+      background: rgba(4, 8, 20, 0.75) !important;
+      backdrop-filter: blur(4px) !important;
+      z-index: 1040 !important;
       opacity: 1 !important;
     }
   }

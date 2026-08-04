@@ -8,6 +8,11 @@ import { SERVER_ROUTE } from "../../Utils/config";
 const Header = ({ history }) => {
   const { user } = isAuthenticated();
 
+  const toggleSidebar = (e) => {
+    e.preventDefault();
+    document.body.classList.toggle("sidebar-open");
+  };
+
   const handleSignOut = (e) => {
     e.preventDefault();
     document.body.classList.remove("sidebar-open");
@@ -19,6 +24,15 @@ const Header = ({ history }) => {
   return (
     <header className="main-header">
       <div className="header-marquee full-width">
+        <button
+          className="mobile-sidebar-toggle-btn"
+          onClick={toggleSidebar}
+          aria-label="Toggle Navigation Menu"
+          type="button"
+        >
+          ☰
+        </button>
+
         <div className="marquee-content">
           <span>🙏✨ Welcome to YatraMitra Admin Panel 🚍 | 🚌 Manage Buses • 🎟️ Track Bookings • 📊 Monitor Revenue • 🌍 Deliver Seamless Travel Experiences ✨</span>
           <span>🙏✨ Welcome to YatraMitra Admin Panel 🚍 | 🚌 Manage Buses • 🎟️ Track Bookings • 📊 Monitor Revenue • 🌍 Deliver Seamless Travel Experiences ✨</span>
@@ -36,11 +50,11 @@ const Header = ({ history }) => {
                 alt="User"
                 className="header-user-avatar"
               />
-              <span className="header-user-name">{user.name}</span>
+              <span className="header-user-name hidden-mobile">{user.name}</span>
             </Link>
             <button className="header-logout-btn" onClick={handleSignOut} title="Sign Out" type="button">
               <i className="fa fa-sign-out" />
-              <span>Logout</span>
+              <span className="hidden-mobile">Logout</span>
             </button>
           </div>
         )}
