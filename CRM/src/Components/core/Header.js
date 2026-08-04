@@ -22,6 +22,13 @@ const Header = ({ history }) => {
 
   return (
     <header className="main-header">
+      <div className="header-marquee full-width">
+        <div className="marquee-content">
+          <span>🙏✨ Welcome to YatraMitra Admin Panel 🚍 | 🚌 Manage Buses • 🎟️ Track Bookings • 📊 Monitor Revenue • 🌍 Deliver Seamless Travel Experiences ✨</span>
+          <span>🙏✨ Welcome to YatraMitra Admin Panel 🚍 | 🚌 Manage Buses • 🎟️ Track Bookings • 📊 Monitor Revenue • 🌍 Deliver Seamless Travel Experiences ✨</span>
+        </div>
+      </div>
+
       <div className="header-nav-container">
         <div className="header-left">
           <button
@@ -38,13 +45,6 @@ const Header = ({ history }) => {
               YatraMitra <span className="crm-badge-tag">CRM</span>
             </span>
           </Link>
-        </div>
-
-        <div className="header-marquee hidden-mobile">
-          <div className="marquee-content">
-            <span>🙏✨ Welcome to YatraMitra Admin Panel 🚍 | 🚌 Manage Buses • 🎟️ Track Bookings • 📊 Monitor Revenue • 🌍 Deliver Seamless Travel Experiences ✨</span>
-            <span>🙏✨ Welcome to YatraMitra Admin Panel 🚍 | 🚌 Manage Buses • 🎟️ Track Bookings • 📊 Monitor Revenue • 🌍 Deliver Seamless Travel Experiences ✨</span>
-          </div>
         </div>
 
         {user && (
