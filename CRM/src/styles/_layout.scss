@@ -36,9 +36,9 @@ h1, h2, h3, h4, h5, h6,
    ========================================================================== */
 .content-wrapper {
   margin-left: $sidebar-width !important;
-  margin-top: 96px !important;
+  margin-top: 60px !important;
   padding: 2rem !important;
-  min-height: calc(100vh - 96px) !important;
+  min-height: calc(100vh - 60px) !important;
   background: transparent !important;
   transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
   animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -51,12 +51,12 @@ h1, h2, h3, h4, h5, h6,
   background: linear-gradient(180deg, $bg-sidebar 0%, #060911 100%) !important;
   width: $sidebar-width !important;
   position: fixed !important;
-  top: 96px !important; /* Starts below the 96px double header */
+  top: 60px !important; /* Starts below the header */
   left: 0 !important;
   bottom: 0 !important;
   z-index: 900 !important; /* Below top header */
   overflow-y: auto !important;
-  max-height: calc(100vh - 96px) !important;
+  max-height: calc(100vh - 60px) !important;
   border-right: 1px solid $border-color !important;
   box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5) !important;
   transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
@@ -340,46 +340,96 @@ h1, h2, h3, h4, h5, h6,
   width: 100% !important;
   top: 0 !important;
   z-index: 1000 !important;
-  background: transparent !important;
+  background: rgba(8, 13, 24, 0.75) !important;
   left: 0 !important;
   right: 0 !important;
-
-  .header-marquee.full-width {
-    width: 100% !important;
-    height: 36px !important;
-    background: linear-gradient(135deg, #FF6B35, #FFA726) !important;
-    overflow: hidden !important;
-    display: flex !important;
-    align-items: center !important;
-    position: relative !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) !important;
-
-    .marquee-content {
-      display: flex !important;
-      white-space: nowrap !important;
-      animation: marqueeScroll 25s linear infinite !important;
-
-      span {
-        display: inline-block !important;
-        padding: 0 3rem !important;
-        font-family: $font-headings !important;
-        font-size: 0.88rem !important;
-        font-weight: 700 !important;
-        color: #080d18 !important;
-        letter-spacing: 0.5px !important;
-      }
-    }
-  }
+  height: 60px !important;
+  z-index: 1000 !important;
 
   .header-nav-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 60px;
+    height: 100%;
     padding: 0 1.2rem;
-    background: rgba(8, 13, 24, 0.85) !important;
-    backdrop-filter: blur(12px) !important;
-    border-bottom: 1px solid $border-color !important;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .mobile-sidebar-toggle-btn {
+    display: none;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid $border-color;
+    color: $text-light;
+    font-size: 1.3rem;
+    width: 38px;
+    height: 38px;
+    border-radius: $radius-md;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+
+    &:hover {
+      background: rgba(245, 158, 11, 0.15);
+      border-color: $primary;
+      color: $primary;
+    }
+  }
+
+  .crm-logo-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none !important;
+
+    .crm-logo-icon {
+      font-size: 1.4rem;
+    }
+    .crm-brand-title {
+      font-family: $font-headings;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: $text-light;
+      letter-spacing: -0.01em;
+    }
+    .crm-badge-tag {
+      background: linear-gradient(135deg, $primary, #d97706);
+      color: #080d18;
+      font-size: 0.65rem;
+      font-weight: 900;
+      padding: 2px 6px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  .header-marquee {
+    flex: 1;
+    max-width: 550px;
+    margin: 0 1.5rem;
+    overflow: hidden;
+
+    .marquee-content {
+      display: flex !important;
+      white-space: nowrap !important;
+      animation: marqueeScroll 30s linear infinite !important;
+
+      span {
+        display: inline-block !important;
+        padding: 0 3rem !important;
+        font-family: $font-headings !important;
+        font-size: 0.95rem !important;
+        font-weight: 600 !important;
+        color: rgba(255, 255, 255, 0.8) !important;
+        letter-spacing: 0.5px !important;
+      }
+    }
   }
 
   .header-right {
@@ -901,6 +951,8 @@ select option {
   }
 
   .main-header {
+    height: 60px !important;
+
     .header-nav-container {
       padding: 0 0.8rem !important;
     }
@@ -931,10 +983,10 @@ select option {
 
   .main-sidebar {
     position: fixed !important;
-    top: 96px !important;
+    top: 60px !important;
     left: -260px !important;
     width: 260px !important;
-    height: calc(100vh - 96px) !important;
+    height: calc(100vh - 60px) !important;
     z-index: 900 !important;
     transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
     background: rgba(13, 21, 38, 0.98) !important;
